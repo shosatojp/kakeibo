@@ -5,6 +5,6 @@ RUN apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates 
     && apt install nodejs -y
 ADD https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h skipcache
 RUN git clone https://github.com/shosatojp/kakeibo-front
-RUN git clone https://github.com/shosatojp/kakeibo-back
-CMD cd kakeibo-back && npm run serve
+RUN git clone https://github.com/shosatojp/kakeibo-back && cd kakeibo-back && npm i
+#CMD cd kakeibo-back && npm run serve
 EXPOSE 8080
