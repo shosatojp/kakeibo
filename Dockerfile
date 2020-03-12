@@ -6,6 +6,6 @@ RUN apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates 
 ADD https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h skipcache
 RUN mkdir kakeibo-back && npm i express@4.17.1 sqlite3@4.1.1
 RUN git clone https://github.com/shosatojp/kakeibo-front
-RUN git clone https://github.com/shosatojp/kakeibo-back kakeibo-back && cd kakeibo-back && npm i
+RUN git clone https://github.com/shosatojp/kakeibo-back kakeibo-back
 #CMD cd kakeibo-back && npm run serve
 EXPOSE 8080
