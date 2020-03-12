@@ -9,7 +9,8 @@ all:
 run:
 	-docker stop $(CONTAINER)
 	-docker rm $(CONTAINER)
-	docker run -p 127.0.0.1:8089:8080 --name $(CONTAINER) -dit $(IMAGE) npm run --prefix /kakeibo-back/ serve
+	mkdir -p db
+	docker run -p 127.0.0.1:8089:8080 -v `readlink -f ./db/`:/kakeibo-back/db/ --name $(CONTAINER) -dit $(IMAGE) npm run --prefix /kakeibo-back/ serve
 
 clean:
 	-docker rmi `docker images -f "dangling=true" -q`
